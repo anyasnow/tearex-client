@@ -1,0 +1,108 @@
+* {
+  box-sizing: border-box;
+}
+
+  html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-light);
+  }
+
+:root {
+  --bg-dark: #aaa; /* navsbg, footerbg, minor text */
+  --bg-light:#ddd; /* contrast */
+  --pic-bright: #059185; /* tea pics */
+  --text-bright: rgb(245, 208, 0); /* bright text */
+  --text-light: rgb(246, 246, 246); /* whitespace */
+  --text-dark: #444; /* h1 main text */ 
+}
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Tahoma;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+@media (min-width: 481px) and (max-width: 1024px) {
+	
+		
+	.description {
+		padding: 20px;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+	.description-element {
+		display: inline-block;
+		margin: 5px;
+		padding: 5px;
+		width: 45%;
+    }
+    
+    .signup {
+		padding: 20px;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+	.signup-element {
+		display: inline-block;
+		margin: 5px;
+		padding: 5px;
+		width: 45%;
+	}
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+	nav {
+		margin-bottom: 70px;
+	}
+	nav ul {
+		float: left;
+		margin: 5px 0px;
+	}
+	nav li {
+		margin: 10px 0;
+		padding: 5px;
+	}
+	
+	.description {
+		padding: 20px;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+	.description img {
+		width: 150px;
+		height: auto;
+	}
+	.description-element {
+		display: inline-block;
+		margin: 10px;
+		padding: 20px;
+		width: 60%;
+		flex: 2;
+	}
+	.description-element p {
+		text-align: left;
+		padding: 5px;
+	}
+	.signup, 	.header {
+		height: 400px;
+		margin: auto;
+	}
+	.header h2, .signup h2 {
+		margin-left: 30px;
+		padding-top: 30px;
+	}
+	.header p, 	.signup p {
+		width: auto;
+		margin: 30px;
+	}
+}

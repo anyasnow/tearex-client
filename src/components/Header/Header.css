@@ -1,0 +1,16 @@
+
+#header, #signup {
+	background: var(--bg-light);
+    padding: 10px;
+}
+
+h2, #signup h2 {
+	padding: 40px;
+    text-align: center;
+    color: var(--text-dark);
+}
+
+#header p {
+	width: 500px;
+	margin: 30px;
+}

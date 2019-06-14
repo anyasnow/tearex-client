@@ -1,0 +1,21 @@
+
+
+.signup {
+	background: var(--bg-dark);
+	margin: 0;
+	padding: 25px 40px;
+	text-align: center;
+}
+
+
+.signup img {
+    padding: 20px;
+}
+
+button {
+    margin: 25px;
+    padding: 10px;
+    font-size: 18px;
+}
+
+

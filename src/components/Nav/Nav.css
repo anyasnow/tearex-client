@@ -1,0 +1,58 @@
+nav {
+    padding: 10px;
+    background-color: var(--bg-dark);
+}
+
+nav ul {
+	float: right;
+    margin-right: 30px;
+}
+
+
+nav li a {
+	color: var(--text-dark);
+	text-decoration: none;
+    font-size: 20px;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block
+}
+
+
+nav li a:hover {
+  color: var(--text-light);
+}
+
+
+nav li a:focus {
+  outline: none;
+border-radius: 10px;
+border: 2px solid var(--text-light)
+}
+
+li {
+	display: inline;
+	margin: 10px;
+}
+
+
+
+ a {
+	color: var(--text-dark);
+	text-decoration: underline;
+    font-size: 20px;
+    cursor: pointer;
+    display: inline-block
+}
+
+
+ a:hover {
+  color: var(--text-light);
+}
+
+
+a:focus {
+outline: none;
+border-radius: 10px;
+border: 2px solid var(--text-light)
+}

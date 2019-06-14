@@ -1,0 +1,54 @@
+
+p, label {
+	color: var(--text-dark);
+	font-size: 18px;
+}
+
+form {
+    padding-bottom: 20px;
+}
+
+
+label {
+    display: inline-block;
+    margin-top: 20px;
+}
+
+fieldset {
+    border: 0;
+}
+
+
+h2 {
+	margin: 0;
+    font-size: 24px;
+    padding: 10px;
+    color: var(--text-dark);
+    text-align: center;
+}
+
+h3 {
+	color: var(--text-dark);
+    margin: 0;
+    padding: 10px;
+    font-size: 22px;
+    text-align: center;
+}
+
+
+
+.demo  {
+	text-align: center;
+	margin: auto 20px;
+    padding: 10px;
+    background: var(--bg-dark);
+	margin: 0;
+	padding: 25px 40px;
+	text-align: center;
+}
+
+#submitbutton {
+    margin: 25px;
+    padding: 10px;
+    font-size: 18px;
+}

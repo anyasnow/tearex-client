@@ -1,0 +1,22 @@
+
+
+.description {
+	background: var(--bg-dark);
+	display: flex;
+	margin: 0;
+	padding: 25px 40px;
+	text-align: center;
+}
+
+
+.description img, .signup img {
+    padding: 20px;
+}
+
+
+.description-element {
+	background: var(--bg-light);
+	text-align: center;
+	margin: auto 20px;
+	padding: 5px;
+}

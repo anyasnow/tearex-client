@@ -1,0 +1,10 @@
+
+footer {
+	background: var(--bg-dark);
+	height: 50px;
+}
+
+p {
+	padding-top: 10px;
+	text-align: center
+}
