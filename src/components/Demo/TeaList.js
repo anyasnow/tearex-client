@@ -1,59 +1,31 @@
-import React, { Component } from 'react';
+import React from 'react';
+import TeaEntry from './TeaEntry';
 
 
-
-const TeaEntry = (props) => {
-    console.log(props)
-    return (
-        < div className="demo-element" >
-            <h3>{props.teaName}</h3>
-            <img src="https://via.placeholder.com/40.png?text=black tea icon" alt="black tea icon" />
-            <p><b>Type:</b> {props.type}</p>
-            <p><b>Brand:</b> {props.brand}</p>
-            <p><b>Packaging:</b> {props.packaging}</p>
-            <p><b>Notes:</b> {props.notes}</p>
-        </div >
-
-    )
-}
-
-const ListAllTeas = props => {
-    const allTeas = props.teas.map((object, index) => {
+const TeaList = props => {
+    const allTeas = props.teas.map(tea => {
         return (
-            < div className="demo-element" key={index}>
+            < div className="demo-element" key={tea.teaName} >
                 <TeaEntry
-                    teaName={object.teaName}
-                    brand={object.brand}
-                    type={object.type}
-                    packaging={object.packaging}
-                    notes={object.notes}
-
+                    teaName={tea.teaName}
+                    brand={tea.brand}
+                    type={tea.type}
+                    packaging={tea.packaging}
+                    notes={tea.notes}
+                    deleteTea={props.deleteTea}
+                    editTea={props.editTea}
+                    teas={props.teas}
                 />
-                <button onClick={() => { props.deleteTea(index) }}>Delete</button>
-            </div>
+            </div >
         );
     });
 
     return (
         <>
-            <h2>My Tea Inventory</h2>
-            <ul>
-                {allTeas}
-            </ul>
+            {allTeas}
         </>
     )
 }
 
-class TeaList extends Component {
-    render() {
 
-        return (
-
-
-            <ListAllTeas teas={this.props.teas} deleteTea={this.props.deleteTea} />
-
-        );
-    }
-}
-
-export default TeaList;
+export default TeaList

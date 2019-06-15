@@ -11,7 +11,7 @@ class Signup extends React.Component {
 
                 <section className="signup">
                     <h2>Create your tea collection now</h2>
-                    <div class="signup-element">
+                    <div className="signup-element">
 
                         <form className='signup-form'>
                             <div>

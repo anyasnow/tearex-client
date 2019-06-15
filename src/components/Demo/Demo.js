@@ -1,46 +1,74 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import TeaList from './TeaList';
 import Form from './Form';
+import dummyData from './dummyData';
 import './Demo.css';
-import { Link } from 'react-router-dom';
 
-class App extends Component {
-    state = {
-        teas: []
-    };
+const teas = dummyData
 
-    deleteTea = index => {
+localStorage.setItem('teas', JSON.stringify(teas));
 
-        const { teas } = this.state;
+class Demo extends Component {
+
+    state = { teas: JSON.parse(localStorage.getItem('teas')) };
+
+    componentWillMount = () => {
+
+        const teas = this.getTeas();
+        this.setState({ teas });
+    }
+
+    getTeas = () => {
+        return this.state.teas;
+
+    }
+
+    addTea = tea => {
+        this.setState({ teas: [tea, ...this.state.teas] });
+    }
+
+    // editTea = teaName => {
+    //     let teas = this.getTeas();
+
+    //     this.setState({
+    //         teas: teas.map(tea => {
+    //             if (tea.teaName === teaName) {
+    //                 tea.value = value;
+    //             }
+
+    //             return tea
+    //         })
+    //     })
+    // }
+
+    deleteTea = teaName => {
+        const teas = this.getTeas();
 
         this.setState({
-            teas: teas.filter((tea, i) => {
-                return i !== index;
+            teas: teas.filter(tea => {
+                return tea.teaName !== teaName
             })
         });
     }
 
-    handleSubmit = tea => {
-        this.setState({ teas: [...this.state.teas, tea] });
-    }
-
     render() {
-        const { teas } = this.state;
 
         return (
-
-            <div className="demo">
+            < div className="demo" >
                 <h2>Add New Tea</h2>
-                <Form handleSubmit={this.handleSubmit} />
+                <Form addTea={this.addTea} />
+                < h2 > My Tea Inventory</h2 >
                 <TeaList
-                    teas={teas}
+                    teas={this.state.teas}
                     deleteTea={this.deleteTea}
+                    editTea={this.editTea}
                 />
-                <p> Want to be able to save your collection? <Link to="/signup">sign up</Link> for an account!</p>
+                <p> Want to be able to save your collection? <Link to="/signup">Sign up</Link> for an account!</p>
 
-            </div>
+            </div >
         );
     }
 }
 
-export default App;
+export default Demo;
