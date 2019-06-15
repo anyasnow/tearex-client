@@ -67,4 +67,6 @@ class Demo extends Component {
                 <p> Want to be able to save your collection? <Link to="/signup">Sign up</Link> for an account!</p>
 
             </div >
-        );
+        )
+    }
+}
