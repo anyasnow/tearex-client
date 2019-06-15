@@ -1,5 +1,5 @@
 
-const products = [
+const teas = [
     {
         teaName: 'Darjeeling Delight',
         brand: 'Top Teas',
@@ -26,4 +26,4 @@ const products = [
 
 ]
 
-export default products;
+export default teas;
