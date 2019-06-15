@@ -68,7 +68,3 @@ class Demo extends Component {
 
             </div >
         );
-    }
-}
-
-export default Demo;
