@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Login from './components/Login/Login';
 import Demo from './components/Demo/Demo';
@@ -8,7 +7,7 @@ import Signup from './components/Signup/Signup'
 import NotFound from './components/NotFound';
 import About from './components/About/About';
 import Header from './components/Header/Header';
-import Footer from './components/Footer/Footer'
+import Footer from './components/Footer/Footer';
 import './App.css'
 
 

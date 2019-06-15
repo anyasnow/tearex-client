@@ -1,19 +1,26 @@
 import React, { Component } from 'react';
 
 class Form extends Component {
-    constructor(props) {
-        super(props);
 
-        this.initialState = {
+
+    state = {
+        teaName: '',
+        brand: '',
+        type: '',
+        packaging: '',
+        notes: ''
+    };
+
+    clearForm = () => {
+        this.setState({
             teaName: '',
             brand: '',
             type: '',
             packaging: '',
             notes: ''
-        };
-
-        this.state = this.initialState;
+        });
     }
+
 
     handleChange = e => {
         this.setState({
@@ -21,10 +28,10 @@ class Form extends Component {
         });
     }
 
-    onFormSubmit = (e) => {
+    onAddSubmit = (e) => {
         e.preventDefault();
-        this.props.handleSubmit(this.state);
-        this.setState(this.initialState);
+        this.props.addTea(this.state);
+        this.clearForm()
     }
 
     render() {
@@ -32,21 +39,21 @@ class Form extends Component {
 
         return (
 
-            <form id="form" onSubmit={this.onFormSubmit} >
+            <form id="form" onSubmit={this.onAddSubmit} >
 
                 <div className="form-section">
                     <label htmlFor="teaName">What's your latest tea addition?</label>
-                    <input type="text" name="teaName" value={teaName} onChange={this.handleChange} required />
+                    <input type="text" aria-label='enter tea name' name="teaName" value={teaName} onChange={this.handleChange} required />
                 </div>
 
                 <div className="form-section">
                     <label htmlFor="brand">Brand/Company/Origin</label>
-                    <input type="text" name="brand" value={brand} onChange={this.handleChange} />
+                    <input type="text" aria-label='enter brand' name="brand" value={brand} onChange={this.handleChange} />
                 </div>
 
                 <div className="form-section">
                     <label htmlFor="type">Type * = considered "true" tea, but Tea Rex loves all kinds!</label>
-                    <select className="type" value={type} name="type" onChange={this.handleChange}>
+                    <select className="type" aria-label='select type of tea' value={type} name="type" onChange={this.handleChange}>
                         <option value="">-- choose one --</option>
                         <optgroup label="BLACK">
                             <option value="Black">Black*</option>
@@ -82,21 +89,21 @@ class Form extends Component {
 
                 <div className="form-section">
                     <label htmlFor="packaging">Packaging</label>
-                    <fieldset onChange={this.handleChange} value={packaging}>
+                    <fieldset onChange={this.handleChange} value={packaging} aria-label='select packaging'>
                         <input type="radio" name="packaging" value="Loose Leaf" />
-                        <label htmlFor="loose">Loose Leaf</label>
+                        <label htmlFor="loose" id="radio-btn">Loose Leaf</label>
                         <input type="radio" name="packaging" value="Tea Bag" />
-                        <label htmlFor="bag">Tea Bag</label>
+                        <label htmlFor="bag" id="radio-btn">Tea Bag</label>
                     </fieldset>
                 </div>
 
                 <div className="form-section">
                     <label htmlFor="notes">Notes</label>
-                    <textarea name="notes" value={notes} onChange={this.handleChange} rows="5"
-                        cols="50">Tasting notes, recipes, where to buy, health benefits, etc</textarea>
+                    <textarea aria-label='enter notes' name="notes" value={notes} onChange={this.handleChange} rows="5"
+                        cols="30">Tasting notes, recipes, where to buy, health benefits, etc</textarea>
                 </div>
 
-                <input type="submit" value="Add Tea" id="submitbutton" />
+                <input type="submit" value="Add Tea" id="button" />
 
             </form>
         );

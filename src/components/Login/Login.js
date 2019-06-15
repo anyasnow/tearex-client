@@ -10,7 +10,7 @@ class Login extends React.Component {
 
             <section className="signin">
                 <h2>Log In</h2>
-                <div class="signin-element">
+                <div className="signin-element">
 
                     <form className='signin-form'>
                         <div>
