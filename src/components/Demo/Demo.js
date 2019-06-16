@@ -1,49 +1,52 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import TeaList from './TeaList';
-import Form from './Form';
+import AddTea from './AddTea';
 import dummyData from './dummyData';
+
 import './Demo.css';
 
-const teas = dummyData
-
-localStorage.setItem('teas', JSON.stringify(teas));
 
 class Demo extends Component {
 
-    state = { teas: JSON.parse(localStorage.getItem('teas')) };
+    state = { teas: dummyData };
 
     componentWillMount = () => {
 
-        const teas = this.getTeas();
+        const teas = this.state.teas;
         this.setState({ teas });
+        (console.log(teas))
     }
 
-    getTeas = () => {
-        return this.state.teas;
-
-    }
 
     addTea = tea => {
         this.setState({ teas: [tea, ...this.state.teas] });
     }
 
-    // editTea = teaName => {
-    //     let teas = this.getTeas();
 
-    //     this.setState({
-    //         teas: teas.map(tea => {
-    //             if (tea.teaName === teaName) {
-    //                 tea.value = value;
-    //             }
 
-    //             return tea
-    //         })
-    //     })
-    // }
+    editTea = (id, teaName, brand, type, packaging, notes) => {
+
+        let newTeas = this.state.teas
+        newTeas.map(tea => {
+            if (tea.id === id) {
+                tea.teaName = teaName;
+                tea.brand = brand;
+                tea.type = type;
+                tea.packaging = packaging;
+                tea.notes = notes;
+            }
+            console.log('tea', tea)
+
+            return tea
+        });
+
+        this.setState({ newTeas });
+
+    }
 
     deleteTea = teaName => {
-        const teas = this.getTeas();
+        const teas = this.state.teas;
 
         this.setState({
             teas: teas.filter(tea => {
@@ -57,7 +60,7 @@ class Demo extends Component {
         return (
             < div className="demo" >
                 <h2>Add New Tea</h2>
-                <Form addTea={this.addTea} />
+                <AddTea addTea={this.addTea} />
                 < h2 > My Tea Inventory</h2 >
                 <TeaList
                     teas={this.state.teas}

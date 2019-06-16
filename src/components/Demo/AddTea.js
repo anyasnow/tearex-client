@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import cuid from 'cuid'
 
-class Form extends Component {
+
+class AddTea extends Component {
 
 
     state = {
@@ -8,7 +10,8 @@ class Form extends Component {
         brand: '',
         type: '',
         packaging: '',
-        notes: ''
+        notes: '',
+        id: cuid()
     };
 
     clearForm = () => {
@@ -17,7 +20,8 @@ class Form extends Component {
             brand: '',
             type: '',
             packaging: '',
-            notes: ''
+            notes: '',
+
         });
     }
 
@@ -110,4 +114,4 @@ class Form extends Component {
     }
 }
 
-export default Form;
+export default AddTea;
