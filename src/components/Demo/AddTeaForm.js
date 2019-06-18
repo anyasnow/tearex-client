@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import cuid from 'cuid'
 
 
-class AddTea extends Component {
 
+class AddTeaForm extends Component {
 
     state = {
         teaName: '',
@@ -11,6 +10,7 @@ class AddTea extends Component {
         type: '',
         packaging: '',
         notes: '',
+        id: ''
 
     };
 
@@ -21,6 +21,7 @@ class AddTea extends Component {
             type: '',
             packaging: '',
             notes: '',
+            id: ''
 
         });
     }
@@ -114,4 +115,4 @@ class AddTea extends Component {
     }
 }
 
-export default AddTea;
+export default AddTeaForm;
