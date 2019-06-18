@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import TeaList from './TeaList';
-import AddTea from './AddTeaForm';
+import AddTeaForm from './AddTeaForm';
 import dummyData from './dummyData';
 
 import './Demo.css';
@@ -14,8 +14,9 @@ class Demo extends Component {
     componentWillMount = () => {
 
         const teas = this.state.teas;
+
         this.setState({ teas });
-        (console.log(teas))
+        (console.log('teas', teas))
     }
 
 
@@ -26,9 +27,9 @@ class Demo extends Component {
 
 
     editTea = (id, teaName, brand, type, packaging, notes) => {
-        console.log('id', id)
-
-        let currentTeas = this.state.teas
+        console.log('editid', id)
+        let currentTeas = this.state.teas;
+        console.log('currentTeasEdit', currentTeas)
         let newTeas = currentTeas.map(tea => {
             if (tea.id === id) {
                 tea.teaName = teaName;
@@ -37,34 +38,32 @@ class Demo extends Component {
                 tea.packaging = packaging;
                 tea.notes = notes;
             }
-            console.log(tea)
             return tea
         });
-
-
         this.setState({ teas: newTeas });
-
-
-
     }
 
-    deleteTea = teaName => {
-        const teas = this.state.teas;
+    deleteTea = (brand) => {
+        console.log('delid', brand)
+        let currentTeas = this.state.teas;
+        (console.log('currentdelteas', currentTeas))
+        let filteredTeas = currentTeas.filter(tea => {
+            console.log(tea.id)
+            return tea.id !== brand
+        })
+        console.log('ft', filteredTeas)
 
-        this.setState({
-            teas: teas.filter(tea => {
-                return tea.teaName !== teaName
-            })
-        });
-    }
+        this.setState({ teas: filteredTeas });
+    };
+
 
     render() {
 
         return (
             < div className="demo" >
                 <h2>Add New Tea</h2>
-                <AddTea addTea={this.addTea} />
-                < h2 > My Tea Inventory</h2 >
+                <AddTeaForm addTea={this.addTea} />
+                < h2 > My Tea Inventory ({this.state.teas.length})</h2 >
                 <TeaList
                     teas={this.state.teas}
                     deleteTea={this.deleteTea}
