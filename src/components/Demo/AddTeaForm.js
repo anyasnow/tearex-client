@@ -11,7 +11,7 @@ class AddTea extends Component {
         type: '',
         packaging: '',
         notes: '',
-        id: cuid()
+
     };
 
     clearForm = () => {
@@ -47,12 +47,12 @@ class AddTea extends Component {
 
                 <div className="form-section">
                     <label htmlFor="teaName">What's your latest tea addition?</label>
-                    <input type="text" aria-label='enter tea name' name="teaName" value={teaName} onChange={this.handleChange} required />
+                    <input type="text" name="teaName" id="teaName" value={teaName} onChange={this.handleChange} required />
                 </div>
 
                 <div className="form-section">
                     <label htmlFor="brand">Brand/Company/Origin</label>
-                    <input type="text" aria-label='enter brand' name="brand" value={brand} onChange={this.handleChange} />
+                    <input type="text" name="brand" value={brand} onChange={this.handleChange} />
                 </div>
 
                 <div className="form-section">

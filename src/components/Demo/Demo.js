@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import TeaList from './TeaList';
-import AddTea from './AddTea';
+import AddTea from './AddTeaForm';
 import dummyData from './dummyData';
 
 import './Demo.css';
@@ -26,9 +26,10 @@ class Demo extends Component {
 
 
     editTea = (id, teaName, brand, type, packaging, notes) => {
+        console.log('id', id)
 
-        let newTeas = this.state.teas
-        newTeas.map(tea => {
+        let currentTeas = this.state.teas
+        let newTeas = currentTeas.map(tea => {
             if (tea.id === id) {
                 tea.teaName = teaName;
                 tea.brand = brand;
@@ -36,12 +37,14 @@ class Demo extends Component {
                 tea.packaging = packaging;
                 tea.notes = notes;
             }
-            console.log('tea', tea)
-
+            console.log(tea)
             return tea
         });
 
-        this.setState({ newTeas });
+
+        this.setState({ teas: newTeas });
+
+
 
     }
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 
-class TeaEntry extends Component {
+class TeaItem extends Component {
 
     state = {
         isEdit: false,
@@ -10,6 +10,7 @@ class TeaEntry extends Component {
         type: this.props.type,
         packaging: this.props.packaging,
         notes: this.props.notes,
+        id: this.props.id
     }
 
 
@@ -29,6 +30,7 @@ class TeaEntry extends Component {
 
         const { id, teaName, brand, type, packaging, notes } = this.state;
         e.preventDefault();
+        console.log('teaItemState', this.state);
         this.props.editTea(id, teaName, brand, type, packaging, notes);
         this.setState({ isEdit: false })
     }
@@ -132,4 +134,4 @@ class TeaEntry extends Component {
     }
 }
 
-export default TeaEntry
+export default TeaItem

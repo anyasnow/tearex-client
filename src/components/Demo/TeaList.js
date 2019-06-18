@@ -1,5 +1,5 @@
 import React from 'react';
-import TeaEntry from './TeaEntry';
+import TeaItem from './TeaItem';
 
 
 const TeaList = props => {
@@ -7,16 +7,17 @@ const TeaList = props => {
         return (
 
             < div className="demo-element" key={tea.id} >
-                <TeaEntry
+                <TeaItem
                     teaName={tea.teaName}
                     brand={tea.brand}
                     type={tea.type}
                     packaging={tea.packaging}
                     notes={tea.notes}
+                    id={tea.id}
                     deleteTea={props.deleteTea}
                     editTea={props.editTea}
                     teas={props.teas}
-                    id={props.id}
+
                 />
             </div >
         );
