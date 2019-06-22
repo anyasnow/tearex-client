@@ -2,22 +2,36 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import TeaList from './TeaList';
 import AddTeaForm from './AddTeaForm';
-import dummyData from './dummyData';
+import config from '../.././config';
 
 import './Demo.css';
 
 
 class Demo extends Component {
 
-    state = { teas: dummyData };
+    state = { teas: [] };
 
-    componentWillMount = () => {
+    componentDidMount = () => {
 
-        const teas = this.state.teas;
+        fetch(config.API_ENDPOINT)
+            .then(res => res.json())
+            .then(resJson => {
+                this.setState({ teas: resJson })
+            })
+        // .then(res => {
+        //     if (!res.ok) {
+        //         return res.json().then(error => Promise.reject(error))
+        //     }
+        //     return res.json()
+        // })
 
-        this.setState({ teas });
-        (console.log('teas', teas))
+        // .then(this.setBookmarks)
+        // .catch(error => {
+        //     console.error(error)
+        //     this.setState({ error })
+        // })
     }
+
 
 
     addTea = tea => {
@@ -58,7 +72,7 @@ class Demo extends Component {
 
 
     render() {
-
+        console.log('fetch teas', this.state.teas)
         return (
             < div className="demo" >
                 <h2>Add New Tea</h2>
