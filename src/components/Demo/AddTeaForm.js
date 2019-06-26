@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 class AddTeaForm extends Component {
 
     state = {
-        teaName: '',
+        teaname: '',
         brand: '',
         type: '',
         packaging: '',
@@ -16,7 +16,7 @@ class AddTeaForm extends Component {
 
     clearForm = () => {
         this.setState({
-            teaName: '',
+            teaname: '',
             brand: '',
             type: '',
             packaging: '',
@@ -40,15 +40,15 @@ class AddTeaForm extends Component {
     }
 
     render() {
-        const { teaName, brand, type, packaging, notes } = this.state;
+        const { teaname, brand, type, packaging, notes } = this.state;
 
         return (
 
             <form id="form" onSubmit={this.onAddSubmit} >
 
                 <div className="form-section">
-                    <label htmlFor="teaName">What's your latest tea addition?</label>
-                    <input type="text" name="teaName" id="teaName" value={teaName} onChange={this.handleChange} required />
+                    <label htmlFor="teaname">What's your latest tea addition?</label>
+                    <input type="text" name="teaname" id="teaname" value={teaname} onChange={this.handleChange} required />
                 </div>
 
                 <div className="form-section">

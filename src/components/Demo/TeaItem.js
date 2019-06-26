@@ -5,7 +5,7 @@ class TeaItem extends Component {
 
     state = {
         isEdit: false,
-        teaName: this.props.teaName,
+        teaname: this.props.teaname,
         brand: this.props.brand,
         type: this.props.type,
         packaging: this.props.packaging,
@@ -17,7 +17,7 @@ class TeaItem extends Component {
     onEdit = () => {
         this.setState({
             isEdit: true,
-            teaName: this.props.teaName,
+            teaname: this.props.teaname,
             brand: this.props.brand,
             type: this.props.type,
             packaging: this.props.packaging,
@@ -28,10 +28,10 @@ class TeaItem extends Component {
 
     onEditSubmit = e => {
 
-        const { id, teaName, brand, type, packaging, notes } = this.state;
+        const { id, teaname, brand, type, packaging, notes } = this.state;
         e.preventDefault();
         console.log('teaItemState', this.state);
-        this.props.editTea(id, teaName, brand, type, packaging, notes);
+        this.props.editTea(id, teaname, brand, type, packaging, notes);
         this.setState({ isEdit: false })
     }
 
@@ -51,8 +51,8 @@ class TeaItem extends Component {
                         ? (<form id="form" onSubmit={this.onEditSubmit} >
 
                             <div className="form-section">
-                                <label htmlFor="teaName">What's your latest tea addition?</label>
-                                <input type="text" id="teaName" name="teaName" value={this.state.teaName} onChange={this.handleChange} required />
+                                <label htmlFor="teaname">What's your latest tea addition?</label>
+                                <input type="text" id="teaname" name="teaname" value={this.state.teaname} onChange={this.handleChange} required />
                             </div>
 
                             <div className="form-section">
@@ -116,7 +116,7 @@ class TeaItem extends Component {
 
                         </form>)
                         : (<>
-                            <h3>{this.props.teaName}</h3>
+                            <h3>{this.props.teaname}</h3>
                             <img src="https://via.placeholder.com/40.png?text=black tea icon" alt="black tea icon" />
                             <p><b>Type:</b> {this.props.type}</p>
                             <p><b>Brand:</b> {this.props.brand}</p>

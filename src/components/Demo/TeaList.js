@@ -8,7 +8,7 @@ const TeaList = props => {
 
             < div className="demo-element" key={tea.id} >
                 <TeaItem
-                    teaName={tea.teaName}
+                    teaname={tea.teaname}
                     brand={tea.brand}
                     type={tea.type}
                     packaging={tea.packaging}

@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import TeaList from './TeaList';
@@ -16,7 +17,7 @@ class Demo extends Component {
         fetch(config.API_ENDPOINT)
             .then(res => res.json())
             .then(resJson => {
-                this.setState({ teas: resJson })
+                this.setState({ teas: resJson })  //in GET the resJson is the WHOLE INVENTORY
             })
         // .then(res => {
         //     if (!res.ok) {
@@ -25,50 +26,77 @@ class Demo extends Component {
         //     return res.json()
         // })
 
-        // .then(this.setBookmarks)
+        // .then(this.setState({???}))
         // .catch(error => {
         //     console.error(error)
         //     this.setState({ error })
         // })
     }
 
-
-
     addTea = tea => {
-        this.setState({ teas: [tea, ...this.state.teas] });
-    }
-
-
-
-    editTea = (id, teaName, brand, type, packaging, notes) => {
-        console.log('editid', id)
-        let currentTeas = this.state.teas;
-        console.log('currentTeasEdit', currentTeas)
-        let newTeas = currentTeas.map(tea => {
-            if (tea.id === id) {
-                tea.teaName = teaName;
-                tea.brand = brand;
-                tea.type = type;
-                tea.packaging = packaging;
-                tea.notes = notes;
-            }
-            return tea
-        });
-        this.setState({ teas: newTeas });
-    }
-
-    deleteTea = (brand) => {
-        console.log('delid', brand)
-        let currentTeas = this.state.teas;
-        (console.log('currentdelteas', currentTeas))
-        let filteredTeas = currentTeas.filter(tea => {
-            console.log(tea.id)
-            return tea.id !== brand
+        fetch(config.API_ENDPOINT, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(tea)
         })
-        console.log('ft', filteredTeas)
+            // .then(console.log('newtea', tea)) //'tea' is just the user input, before communicating with server
 
-        this.setState({ teas: filteredTeas });
-    };
+            // .then(resJson => console.log('rj', resJson)) //in POST the resJson is THE NEW TEA with ID added - after communicating with server
+            .then(res => res.json())
+            .then(resJson => {
+                this.setState({ teas: [...this.state.teas, resJson] })
+            })
+            .catch((err) => console.log(err))
+    }
+
+
+    editTea = (id, teaname, brand, type, packaging, notes) => {
+        const newTea = { teaname, brand, type, packaging, notes };
+        fetch(`${config.API_ENDPOINT}/${id}`, {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(newTea),
+        })
+            .then(res =>
+                (!res.ok)
+                    ? res.json().then(e => Promise.reject(e))
+                    : res.json()
+            )
+
+            .then(console.log('teas after patch', this.state.teas))
+            .then(() => {
+                let updatedTeas = this.state.teas.map(tea => {
+                    if (tea.id === id) {
+                        return Object.assign({}, tea, newTea);
+                    }
+                    return tea
+                })
+                console.log('teas after map', updatedTeas)
+                this.setState({ teas: updatedTeas });
+            })
+    }
+
+
+
+    deleteTea = (id) => {
+        fetch(`${config.API_ENDPOINT}/${id}`, {
+            method: 'DELETE',
+            headers: { 'Content-Type': 'application/json' },
+        })
+            .then(res => res.json())
+            .then(console.log('teas after delete', this.state.teas))
+            .then(() => {
+                let filteredTeas = this.state.teas.filter(tea => {
+                    if (tea.id !== id) {
+                        return tea
+                    }
+                })
+                // console.log('teas after filter', filteredTeas)
+                this.setState({ teas: filteredTeas })
+            })
+    }
+
+
 
 
     render() {
