@@ -8,6 +8,10 @@
  
   }
 
+  /* main{
+  min-height:100vh;
+} */
+
 :root {
   --bg-dark: #aaa; /* navsbg, footerbg, minor text */
   --bg-light:#ddd; /* contrast */

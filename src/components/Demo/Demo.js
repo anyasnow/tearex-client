@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import TeaList from './TeaList';
 import AddTeaForm from './AddTeaForm';
 import config from '../.././config';
-
+import TokenService from '../../services/TokenService';
 import './Demo.css';
 
 
@@ -14,7 +14,9 @@ class Demo extends Component {
 
     componentDidMount = () => {
 
-        fetch(config.API_ENDPOINT)
+        fetch(`${config.API_ENDPOINT}/teas`, {
+            headers: { 'authorization': `bearer ${TokenService.getAuthToken()}` }
+        })
             .then(res => res.json())
             .then(resJson => {
                 this.setState({ teas: resJson })  //in GET the resJson is the WHOLE INVENTORY
@@ -26,17 +28,13 @@ class Demo extends Component {
         //     return res.json()
         // })
 
-        // .then(this.setState({???}))
-        // .catch(error => {
-        //     console.error(error)
-        //     this.setState({ error })
-        // })
     }
 
     addTea = tea => {
-        fetch(config.API_ENDPOINT, {
+        fetch(`${config.API_ENDPOINT}/teas`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
+            'authorization': `bearer ${TokenService.getAuthToken()}`,
             body: JSON.stringify(tea)
         })
             // .then(console.log('newtea', tea)) //'tea' is just the user input, before communicating with server
@@ -52,8 +50,9 @@ class Demo extends Component {
 
     editTea = (id, teaname, brand, type, packaging, notes) => {
         const newTea = { teaname, brand, type, packaging, notes };
-        fetch(`${config.API_ENDPOINT}/${id}`, {
+        fetch(`${config.API_ENDPOINT}/teas/${id}`, {
             method: 'PATCH',
+            'authorization': `bearer ${TokenService.getAuthToken()}`,
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(newTea),
         })
@@ -79,8 +78,9 @@ class Demo extends Component {
 
 
     deleteTea = (id) => {
-        fetch(`${config.API_ENDPOINT}/${id}`, {
+        fetch(`${config.API_ENDPOINT}/teas/${id}`, {
             method: 'DELETE',
+            'authorization': `bearer ${TokenService.getAuthToken()}`,
             headers: { 'Content-Type': 'application/json' },
         })
             .then(res => res.json())

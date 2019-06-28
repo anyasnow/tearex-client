@@ -47,7 +47,7 @@ class AddTeaForm extends Component {
             <form id="form" onSubmit={this.onAddSubmit} >
 
                 <div className="form-section">
-                    <label htmlFor="teaname">What's your latest tea addition?</label>
+                    <label htmlFor="teaname">Name</label>
                     <input type="text" name="teaname" id="teaname" value={teaname} onChange={this.handleChange} required />
                 </div>
 
@@ -57,40 +57,24 @@ class AddTeaForm extends Component {
                 </div>
 
                 <div className="form-section">
-                    <label htmlFor="type">Type * = considered "true" tea, but Tea Rex loves all kinds!</label>
+                    <label htmlFor="type">Type</label>
                     <select className="type" aria-label='select type of tea' value={type} name="type" onChange={this.handleChange}>
                         <option value="">-- choose one --</option>
-                        <optgroup label="BLACK">
-                            <option value="Black">Black*</option>
-                            <option value="Chai">Chai</option>
-                            <option value="Black Flavored">Black Flavored</option>
+                        <optgroup label="True Teas">
+                            <option value="Black">Black</option>
+                            <option value="Green">Green</option>
+                            <option value="White">White</option>
+                            <option value="Oolong">Oolong</option>
+                            <option value="Pu-erh">Pu-erh</option>
                         </optgroup>
-                        <optgroup label="GREEN">
-                            <option value="Green">Green*</option>
-                            <option value="Sencha">Sencha</option>
-                            <option value="Matcha">Matcha</option>
-                            <option value="Green Flavored">Green Flavored</option>
-                        </optgroup>
-                        <optgroup label="HERBAL">
+                        <optgroup label="Technically not Teas">
                             <option value="Herbal">Herbal</option>
-                            <option value="Mate">Mate</option>
-                            <option value="Rooibos">Rooibos</option>
-                        </optgroup>
-                        <optgroup label="WHITE">
-                            <option value="White">White*</option>
-                        </optgroup>
-                        <optgroup label="OOLONG">
-                            <option value="Oolong">Oolong*</option>
-                        </optgroup>
-                        <optgroup label="PU-ERH">
-                            <option value="Pu-erh">Pu-erh*</option>
-                        </optgroup>
-                        <optgroup label="OTHER">
+                            <option value="Flavored">Flavored</option>
                             <option value="Blend">Blend</option>
                             <option value="Other">Other</option>
                         </optgroup>
-                    </select>
-                </div>
+                    </select >
+                </div >
 
                 <div className="form-section">
                     <label htmlFor="packaging">Packaging</label>
@@ -110,7 +94,7 @@ class AddTeaForm extends Component {
 
                 <input type="submit" value="Add Tea" id="button" />
 
-            </form>
+            </form >
         );
     }
 }
