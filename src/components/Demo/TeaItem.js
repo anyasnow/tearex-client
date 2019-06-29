@@ -92,8 +92,8 @@ class TeaItem extends Component {
 
                             <div className="form-section">
                                 <label htmlFor="notes">Notes</label>
-                                <textarea id='enter notes' name="notes" value={this.state.notes} onChange={this.handleChange} rows="5"
-                                    cols="30">Tasting notes, recipes, where to buy, health benefits, etc</textarea>
+                                <textarea id="notes" name="notes" value={this.state.notes} onChange={this.handleChange} rows="5"
+                                    cols="30"></textarea>
                             </div>
 
                             <input type="submit" value="Update" id="button" />
@@ -106,10 +106,12 @@ class TeaItem extends Component {
                             <p><b>Brand:</b> {this.props.brand}</p>
                             <p><b>Packaging:</b> {this.props.packaging}</p>
                             <p><b>Notes:</b> {this.props.notes}</p>
+                            <div className="edit-delete">
+                                <button onClick={this.onEdit}>Edit</button>
 
-                            <button onClick={this.onEdit}>Edit</button>
-
-                            <button onClick={() => { this.props.deleteTea(this.props.id) }}>Delete</button> </>)
+                                <button onClick={() => { this.props.deleteTea(this.props.id) }}>Delete</button>
+                            </div>
+                        </>)
                 }
 
 

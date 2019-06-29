@@ -114,11 +114,13 @@ class Demo extends Component {
                 <h2>Add New Tea</h2>
                 <AddTeaForm addTea={this.addTea} />
                 < h2 > My Tea Inventory ({this.state.teas.length})</h2 >
-                <TeaList
-                    teas={this.state.teas}
-                    deleteTea={this.deleteTea}
-                    editTea={this.editTea}
-                />
+                <div className="inventory">
+                    <TeaList
+                        teas={this.state.teas}
+                        deleteTea={this.deleteTea}
+                        editTea={this.editTea}
+                    />
+                </div>
                 <p> Want to be able to save your collection? <Link to="/signup">Sign up</Link> for an account!</p>
 
             </div >

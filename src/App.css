@@ -13,12 +13,12 @@
 } */
 
 :root {
-  --bg-dark: #aaa; /* navsbg, footerbg, minor text */
-  --bg-light:#ddd; /* contrast */
+  --bg-dark: rgb(3, 58, 26); /* navsbg, footerbg, minor text */
+  --bg-light:rgb(72, 216, 204); /* contrast */
   --pic-bright: #059185; /* tea pics */
   --text-bright: rgb(245, 208, 0); /* bright text */
-  --text-light: rgb(246, 246, 246); /* whitespace */
-  --text-dark: #444; /* h1 main text */ 
+  --text-light: rgb(90, 224, 157); /* whitespace */
+  --text-dark: rgb(23, 100, 4); /* h1 main text */ 
 }
 body {
 	margin: 0;
@@ -31,7 +31,9 @@ body {
 
 
 @media (min-width: 481px) and (max-width: 1024px) {
-	
+	.inventory {
+		flex-wrap: wrap;
+	}
 		
 	.description {
 		padding: 20px;

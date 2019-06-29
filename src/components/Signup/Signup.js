@@ -23,7 +23,7 @@ class Signup extends React.Component {
                                 <input type="text" name='last-name' id='last-name' placeholder='Last Name' />
                             </div>
                             <div>
-                                <label htmlFor="username">Email</label>
+                                <label htmlFor="username">Username</label>
                                 <input type="text" name='username' id='username' />
                             </div>
                             <div>

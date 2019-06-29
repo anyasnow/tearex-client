@@ -57,19 +57,38 @@ h3 {
     padding: 25px 60px;
     }
 
+.inventory {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    /* align-content: center; */
+}
+
+/* .inventory > * {
+    vertical-align: top;
+} */
+
 div .demo-element {
     border-style: double;
     background: var(--bg-light);
     border-width: 1px;
-    padding: 5px;
+    padding: 15px;
+    padding-bottom: 100px;
     display: inline-block;
-     margin: 5px;
+    margin: 5px 15px;
     text-align: center;
     min-width: 300px;
     max-width: 300px;
     min-height: 350px;
-    
-   
+   position: relative;
+}
+
+.edit-delete {
+    max-width: 300px;
+    width: 100%;
+    margin: 0 auto;
+    position: absolute;
+    bottom: 10px;
 }
 
 #button, button {
