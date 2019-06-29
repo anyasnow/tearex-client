@@ -31,11 +31,11 @@ nav li a:hover {
 }
 
 
-nav li a:focus {
+/* nav li a:focus {
   outline: none;
 border-radius: 10px;
 border: 2px solid var(--text-light)
-}
+} */
 
 li {
 	display: inline;
@@ -44,7 +44,7 @@ li {
 
 
 
- a {
+ nav a {
 	color: var(--text-dark);
 	text-decoration: underline;
     font-size: 20px;
@@ -60,6 +60,6 @@ li {
 
 a:focus {
 outline: none;
-border-radius: 10px;
-border: 2px solid var(--text-light)
+/* border-radius: 10px; */
+/* border: 2px solid var(--text-light) */
 }

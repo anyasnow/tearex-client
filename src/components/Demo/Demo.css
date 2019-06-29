@@ -1,22 +1,55 @@
 
-p, label {
+
+
+
+div .demoparent {
+    background-image: url(../img/teabg.jpg);
+    background-size: cover;
+    /* background-position: fixed; */
+	margin: 0;
+    text-align: center;
+    vertical-align: middle;
+  /* height: 100vh; */
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+    
+}
+
+div .demochild {
+    width: 50%;
+    display: inline-block;
+    background: var(--bg-dark);
+    border-radius: 15px;
+    box-shadow: 5px 5px 3px var(--text-dark);
+}
+
+
+h2 {
+	margin: 0;
+    font-size: 24px;
+    padding: 30px;
+    color: var(--text-light);
+    text-align: center;
+}
+
+label {
+    display: block;
+    padding-bottom: 5px;
+    color: var(--text-dark);
+    font-size: 16px;
+}
+
+
+p {
 	color: var(--text-dark);
     font-size: 16px;
     padding: 0;
     margin:0
 }
 
-form {
-    margin-bottom: 30px;
-    background: var(--bg-light);
-  
-}
 
 
-label {
-    display: inline-block;
-    margin-top: 15px;
-}
 
 #radio-btn {
     margin-bottom: 15px;
@@ -33,13 +66,7 @@ div {
 margin-bottom: 10px
 }
 
-h2 {
-	margin: 0;
-    font-size: 24px;
-    padding: 10px;
-    color: var(--text-dark);
-    text-align: center;
-}
+
 
 h3 {
 	color: var(--text-dark);

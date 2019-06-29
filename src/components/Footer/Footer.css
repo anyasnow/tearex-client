@@ -5,7 +5,14 @@ footer {
 	
 }
 
-p {
-	padding-top: 10px;
-	text-align: center
+footer p  {
+	padding-top: 8px;
+	text-align: center;
+	color: var(--text-dark);
+	
+}
+
+footer a {
+	color: var(--text-dark);
+	text-decoration: none;
 }

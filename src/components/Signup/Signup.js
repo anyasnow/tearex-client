@@ -9,10 +9,10 @@ class Signup extends React.Component {
         return (
             <>
 
-                <section className="signup">
-                    <h2>Create your tea collection now</h2>
-                    <div className="signup-element">
+                <section className="parent">
 
+                    <div className="child">
+                        <h2>Create your tea collection now</h2>
                         <form className='signup-form'>
                             <div>
                                 <label htmlFor="first-name">First name</label>

@@ -1,15 +1,33 @@
 
 
-.description {
-	background: var(--bg-dark);
-	display: flex;
+
+div .aboutparent {
+    background-image: url(../img/teabg.jpg);
+    background-size: cover;
+    /* background-position: fixed; */
 	margin: 0;
-	padding: 25px 40px;
-	text-align: center;
+    text-align: center;
+    vertical-align: middle;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+    
+}
+
+div .aboutchild {
+	margin: 20px;
+	padding: 20px;
+    /* display: flex; */
+    background: var(--bg-dark);
+    border-radius: 15px;
+    box-shadow: 5px 5px 3px var(--text-dark);
 }
 
 
-.description img, .signup img {
+
+
+.child img, .signup img {
     padding: 20px;
 }
 

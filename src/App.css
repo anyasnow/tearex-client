@@ -13,13 +13,14 @@
 } */
 
 :root {
-  --bg-dark: rgb(3, 58, 26); /* navsbg, footerbg, minor text */
-  --bg-light:rgb(72, 216, 204); /* contrast */
+  --bg-dark: #03697f; /* navsbg, footerbg, minor text */
+  --bg-light: #4a96a4; /* contrast */
   --pic-bright: #059185; /* tea pics */
   --text-bright: rgb(245, 208, 0); /* bright text */
-  --text-light: rgb(90, 224, 157); /* whitespace */
-  --text-dark: rgb(23, 100, 4); /* h1 main text */ 
+  --text-light:  #ddcf31; /*  */
+  --text-dark:#c2b633; /*  */ 
 }
+
 body {
 	margin: 0;
 	padding: 0;
@@ -29,30 +30,83 @@ body {
 
 
 
+div .parent {
+    background-image: url(./components/img/teabg.jpg);
+    background-size: cover;
+    /* background-position: fixed; */
+	margin: 0;
+    text-align: center;
+    vertical-align: middle;
+  /* height: 100vh; */
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+    
+}
+
+div .child {
+    width: 50%;
+    display: inline-block;
+    background: var(--bg-dark);
+    border-radius: 15px;
+    box-shadow: 5px 5px 3px var(--text-dark);
+}
+
+
+h2 {
+	margin: 0;
+    font-size: 24px;
+    padding: 30px;
+    color: var(--text-light);
+    text-align: center;
+}
+
+label {
+    display: block;
+    padding-bottom: 5px;
+    color: var(--text-dark);
+    font-size: 16px;
+}
+
+input {
+    margin-bottom: 10px;
+}
+
+
+
+
+button {
+    margin: 25px;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 5px
+}
+
+
+
+
 
 @media (min-width: 481px) and (max-width: 1024px) {
-	.inventory {
-		flex-wrap: wrap;
-	}
+
 		
-	.description {
+	.parent, .demoparent, .aboutparent {
 		padding: 20px;
 		flex-wrap: wrap;
 		justify-content: center;
 	}
-	.description-element {
+	.child, .demochild, .aboutchild {
 		display: inline-block;
 		margin: 5px;
 		padding: 5px;
 		width: 45%;
     }
     
-    .signup {
+    .parent .demoparent, .aboutparent{
 		padding: 20px;
 		flex-wrap: wrap;
 		justify-content: center;
 	}
-	.signup-element {
+	.child .demochild, .aboutchild{
 		display: inline-block;
 		margin: 5px;
 		padding: 5px;
@@ -73,35 +127,41 @@ body {
 		padding: 5px;
 	}
 	
-	.description {
+	.child .demochild, .aboutchild {
 		padding: 20px;
 		flex-wrap: wrap;
 		justify-content: center;
 	}
-	.description img {
+
+	img {
 		width: 150px;
 		height: auto;
 	}
-	.description-element {
+
+	.child  .demochild, .aboutchild{
 		display: inline-block;
 		margin: 10px;
 		padding: 20px;
 		width: 60%;
 		flex: 2;
 	}
-	.description-element p {
+
+	 p {
 		text-align: left;
 		padding: 5px;
 	}
-	.signup, 	.header {
+
+	 	.header {
 		height: 400px;
 		margin: auto;
 	}
-	.header h2, .signup h2 {
+
+	h2  {
 		margin-left: 30px;
 		padding-top: 30px;
 	}
-	.header p, 	.signup p {
+
+	p  {
 		width: auto;
 		margin: 30px;
 	}

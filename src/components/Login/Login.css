@@ -1,22 +1,55 @@
 
 
-div .signin {
-	background: var(--bg-dark);
+div .parent {
+    background-image: url(../img/teabg.jpg);
+    background-size: cover;
+    background-position: fixed;
 	margin: 0;
     text-align: center;
-  height: 100%;
+    vertical-align: middle;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
     
 }
 
-
-.signup img {
-    padding: 20px;
+div .child {
+    width: 50%;
+    display: inline-block;
+    background: var(--bg-dark);
+    border-radius: 15px;
+    box-shadow: 5px 5px 3px var(--text-dark);
 }
+
+
+h2 {
+	margin: 0;
+    font-size: 24px;
+    padding: 30px;
+    color: var(--text-light);
+    text-align: center;
+}
+
+label {
+    display: block;
+    padding-bottom: 5px;
+    color: var(--text-dark);
+    font-size: 16px;
+}
+
+input {
+    margin-bottom: 10px;
+}
+
+
+
 
 button {
     margin: 25px;
     padding: 10px;
     font-size: 18px;
+    border-radius: 5px
 }
 
 

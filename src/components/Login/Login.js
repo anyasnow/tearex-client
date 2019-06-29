@@ -1,6 +1,7 @@
 import React from 'react';
 import AuthApiService from '../../services/AuthApiService';
 import TokenService from '../../services/TokenService';
+// import bgImg from '../teabg.jpg';
 import './Login.css';
 
 
@@ -39,12 +40,13 @@ class Login extends React.Component {
 
         return (
 
-            <section className="signin">
-                <h2>Log In</h2>
-                <div className="signin-element">
+            <div className="parent">
 
-                    <form className='signin-form' onSubmit={this.handleSubmitJwtAuth}>
-                        <div>
+                <div className="child">
+                    <h2>Log In</h2>
+
+                    <form className="signin-form" onSubmit={this.handleSubmitJwtAuth}>
+                        <div className="formField">
                             <label htmlFor="user_name">Username</label>
                             <input type="text" name='user_name' id='user_name' />
                         </div>
@@ -53,9 +55,10 @@ class Login extends React.Component {
                             <input type="password" name='password' id='password' />
                         </div>
                         <button type='submit'>Log In</button>
+                        <p>Demo username: tearex password: ilovetea</p>
                     </form>
                 </div>
-            </section>
+            </div>
 
         )
 
