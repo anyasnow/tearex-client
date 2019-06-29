@@ -1,10 +1,10 @@
-
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import TeaList from './TeaList';
 import AddTeaForm from './AddTeaForm';
 import config from '../.././config';
 import TokenService from '../../services/TokenService';
+import jwtDecode from 'jwt-decode';
 import './Demo.css';
 
 
@@ -13,8 +13,9 @@ class Demo extends Component {
     state = { teas: [] };
 
     componentDidMount = () => {
-
-        fetch(`${config.API_ENDPOINT}/teas`, {
+        const authToken = TokenService.getAuthToken();
+        const decoded = jwtDecode(authToken);
+        fetch(`${config.API_ENDPOINT}/teas/${decoded.user_id}`, {
             headers: { 'authorization': `bearer ${TokenService.getAuthToken()}` }
         })
             .then(res => res.json())
@@ -31,7 +32,9 @@ class Demo extends Component {
     }
 
     addTea = tea => {
-        fetch(`${config.API_ENDPOINT}/teas`, {
+        const authToken = TokenService.getAuthToken();
+        const decoded = jwtDecode(authToken);
+        fetch(`${config.API_ENDPOINT}/teas/${decoded.user_id}`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             'authorization': `bearer ${TokenService.getAuthToken()}`,
@@ -49,8 +52,11 @@ class Demo extends Component {
 
 
     editTea = (id, teaname, brand, type, packaging, notes) => {
+
         const newTea = { teaname, brand, type, packaging, notes };
-        fetch(`${config.API_ENDPOINT}/teas/${id}`, {
+        const authToken = TokenService.getAuthToken();
+        const decoded = jwtDecode(authToken);
+        fetch(`${config.API_ENDPOINT}/teas/${decoded.user_id}/${id}`, {
             method: 'PATCH',
             'authorization': `bearer ${TokenService.getAuthToken()}`,
             headers: { 'Content-Type': 'application/json' },
@@ -78,7 +84,9 @@ class Demo extends Component {
 
 
     deleteTea = (id) => {
-        fetch(`${config.API_ENDPOINT}/teas/${id}`, {
+        const authToken = TokenService.getAuthToken();
+        const decoded = jwtDecode(authToken);
+        fetch(`${config.API_ENDPOINT}/teas/${decoded.user_id}/${id}`, {
             method: 'DELETE',
             'authorization': `bearer ${TokenService.getAuthToken()}`,
             headers: { 'Content-Type': 'application/json' },

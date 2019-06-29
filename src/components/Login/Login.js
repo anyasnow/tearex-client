@@ -4,8 +4,6 @@ import TokenService from '../../services/TokenService';
 import './Login.css';
 
 
-
-
 class Login extends React.Component {
 
     // static defaultProps = {
@@ -38,7 +36,7 @@ class Login extends React.Component {
 
 
     render() {
-        const { error } = this.state
+
         return (
 
             <section className="signin">

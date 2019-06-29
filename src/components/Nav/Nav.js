@@ -54,7 +54,7 @@ class Nav extends React.Component {
                         <Link to="/signup">Register</Link>
                     </li>
                     <li>
-                        <Link to="/demo">Demo</Link>
+                        <Link to="/demo">My Teas</Link>
                     </li>
                 </ul>
 
